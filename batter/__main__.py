@@ -18,6 +18,7 @@ from game.control_actors_action import ControlActorsAction
 from game.handle_collisions_action import HandleCollisionsAction
 from game.handle_off_screen_action import HandleOffScreenAction
 from game.move_actors_action import MoveActorsAction
+from game.artifact import Artifact
 
 def main():
 
@@ -60,6 +61,20 @@ def main():
     paddle.set_image(constants.IMAGE_PADDLE)
     paddles.append(paddle)
     cast["paddle"] = paddles
+
+    cast["artifact"] = []
+    artifacts = []
+    artifact = Artifact()
+    x = random.randint(0, 775)
+    y = random.randint(210, constants.MAX_Y - 100)
+    position = Point(x, y)
+    artifact.set_position(position)
+    artifact.set_height(constants.ARTIFACT_HEIGHT)
+    artifact.set_width(constants.ARTIFACT_WIDTH)
+    artifact.set_text("Longer Paddle")
+    artifact.set_image(constants.IMAGE_ARTIFACT)
+    artifacts.append(artifact)
+    cast["artifact"] = artifacts
 
 
     # Create the script {key: tag, value: list}
