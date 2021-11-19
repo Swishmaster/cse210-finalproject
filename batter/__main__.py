@@ -11,15 +11,13 @@ from game.input_service import InputService
 from game.output_service import OutputService
 from game.physics_service import PhysicsService
 from game.audio_service import AudioService
-
-# TODO: Add imports similar to the following when you create these classes
-# from game.brick import Brick
-# from game.ball import Ball
-# from game.paddle import Paddle
-# from game.control_actors_action import ControlActorsAction
-# from game.handle_collisions_action import HandleCollisionsAction
-# from game.handle_off_screen_action import HandleOffScreenAction
-# from game.move_actors_action import MoveActorsAction
+from game.brick import Brick
+from game.ball import Ball
+from game.paddle import Paddle
+from game.control_actors_action import ControlActorsAction
+from game.handle_collisions_action import HandleCollisionsAction
+from game.handle_off_screen_action import HandleOffScreenAction
+from game.move_actors_action import MoveActorsAction
 
 def main():
 
@@ -27,13 +25,41 @@ def main():
     cast = {}
 
     cast["bricks"] = []
-    # TODO: Create bricks here and add them to the list
+    bricks = []
+    for y in range(0, constants.MAX_Y-400, 40): #5 rows
+        for x in range(0, constants.MAX_X, 50): #16 columns
+            position = Point(x, y)
+
+            brick = Brick()
+            brick.set_position(position)
+            brick.set_height(constants.BRICK_HEIGHT)
+            brick.set_width(constants.BRICK_WIDTH)
+            brick.set_image(constants.IMAGE_BRICK)
+            bricks.append(brick)
+    cast["bricks"] = bricks
 
     cast["balls"] = []
-    # TODO: Create a ball here and add it to the list
+    ball = Ball()
+    balls = []
+    position = Point(constants.BALL_X, constants.BALL_Y)
+    ball.set_position(position)
+    ball.set_width(constants.BALL_WIDTH)
+    ball.set_height(constants.BALL_HEIGHT)
+    ball.set_image(constants.IMAGE_BALL)
+    ball.set_velocity(Point(constants.BALL_DX,constants.BALL_DY))
+    balls.append(ball)
+    cast["balls"] = balls
 
     cast["paddle"] = []
-    # TODO: Create a paddle here and add it to the list
+    paddle = Paddle()
+    paddles = []
+    position = Point(constants.PADDLE_X, constants.PADDLE_Y)
+    paddle.set_position(position)
+    paddle.set_height(constants.PADDLE_HEIGHT)
+    paddle.set_width(constants.PADDLE_WIDTH)
+    paddle.set_image(constants.IMAGE_PADDLE)
+    paddles.append(paddle)
+    cast["paddle"] = paddles
 
 
     # Create the script {key: tag, value: list}
@@ -45,17 +71,17 @@ def main():
     audio_service = AudioService()
 
     draw_actors_action = DrawActorsAction(output_service)
+    move_actors_action = MoveActorsAction()
+    handle_off_screen_action = HandleOffScreenAction()
+    control_actors_action = ControlActorsAction(input_service)
+    handle_collisions_action = HandleCollisionsAction(physics_service)
 
-    # TODO: Create additional actions here and add them to the script
-
-    script["input"] = []
-    script["update"] = []
+    script["input"] = [control_actors_action]
+    script["update"] = [move_actors_action, handle_off_screen_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
 
-
-
     # Start the game
-    output_service.open_window("Batter");
+    output_service.open_window("Batter")
     audio_service.start_audio()
     audio_service.play_sound(constants.SOUND_START)
     
