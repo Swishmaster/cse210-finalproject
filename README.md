@@ -1,7 +1,5 @@
-# Batter
-What's your batting average? Find out with this terminal version of the arcade 
-classic. The goal is simple. Just bat the ball at the blricks until there are 
-none left. If you miss the ball the game is over.
+# Tanker
+Are you ready to take on enemies in this ruthless tank shooting game? Do you have what it takes to win the war? This game will prove if you are the tank commander that you claim to be. Kill your enemies to win the war and you will be celebrated. If you lose then we probably won't mourn your loss. Good luck commander!
 
 ## Project Structure
 ---
