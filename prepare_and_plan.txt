@@ -1,15 +1,15 @@
 Tanker Game
 
 "Must Haves"
-    Actors
-        Tank (you)
-        Enemy
-        Bullets
-        Walls
+    Tank (you)
+    Enemy
+    Bullets
+    Walls
     Input
         Directions
         Fire
     Output
+        Window to show all the actors and actions
     Collision
         Bullet with enemy/tank
         Bullet with Wall
@@ -21,15 +21,12 @@ Tanker Game
         Death of Tank/enemy
         Game start
         Game over
-    Constants
-        Lives
-        Starting positions of tank/enemy
-        Width and height of tank/enemy
-        Speed of tank/enemy
-        Speed of Bullets
-        Number of Walls?
-    Physics service
-        Return true or false if things collide
+    Lives
+    Starting positions of tank/enemy
+    Width and height of tank/enemy
+    Speed of tank/enemy
+    Speed of Bullets
+    Number of Walls?
 
 "Nice to haves"
     Multiple levels
@@ -43,18 +40,39 @@ Tanker Game
 
 Classes
     Actor
+        Position 
+        Velocity
+        Width
+        Height
+        Image
     Action
+        Use the execute method to make different actors move/shoot
     Tank
+        Inherit from actor to create the player
     Enemy
+        Inherit from actor to create enemies
     Bullet
+        Inherit from actor to create the bullets that the tank shoots
     Wall
+        Inherit from actor to create walls
     Director
+        Start the game and control when things happen
     Main
+        Create a dictionary with all the actors, create a script, and pass them to Director
     Point 
+        Create an x, y position of any actor
     Input_serivce
+        Control the directions of the tank
+        Shoot bullets
     Output_service
+        Display all the actors and Actions
     Move_Actors_Action
+        Physically change the position of the actors and send it to Output_service
     Physics_service
+        Returns true or false if there is a collision
     Control_Actors_Action
+        Takes info from Input_serivce
     Constants
+        Has all the variables that won't change
     Audio_service
+        Controls what audio will play when it needs to be played
