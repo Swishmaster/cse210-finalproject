@@ -2,4 +2,59 @@ Tanker Game
 
 "Must Haves"
     Actors
-    
+        Tank (you)
+        Enemy
+        Bullets
+        Walls
+    Input
+        Directions
+        Fire
+    Output
+    Collision
+        Bullet with enemy/tank
+        Bullet with Wall
+        Tank/enemy with Wall
+    Actions
+    Audio
+        Shots
+        Impacts
+        Death of Tank/enemy
+        Game start
+        Game over
+    Constants
+        Lives
+        Starting positions of tank/enemy
+        Width and height of tank/enemy
+        Speed of tank/enemy
+        Speed of Bullets
+        Number of Walls?
+    Physics service
+        Return true or false if things collide
+
+"Nice to haves"
+    Multiple levels
+    Upgrade tank parts
+    More lives
+    Objectives during play
+    Friendly help when needed
+    Easter eggs
+    2 Player
+    Score board
+
+Classes
+    Actor
+    Action
+    Tank
+    Enemy
+    Bullet
+    Wall
+    Director
+    Main
+    Point 
+    Input_serivce
+    Output_service
+    Move_Actors_Action
+    Physics_service
+    Control_Actors_Action
+    Constants
+    Audio_service
