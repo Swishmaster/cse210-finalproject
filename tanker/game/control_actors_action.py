@@ -17,10 +17,10 @@ class ControlActorsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        paddles = cast["paddle"]
-        for paddle in paddles:
+        tanks = cast["tank"]
+        for tank in tanks:
             # position = paddle.get_position()
             # x = position.get_x()
 
             direction = self._input_service.get_direction()
-            paddle.set_velocity(direction.scale(constants.PADDLE_SPEED))        
+            tank.set_velocity(direction.scale(constants.PADDLE_SPEED))        

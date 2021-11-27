@@ -32,10 +32,6 @@ class Director:
             self._cue_action("input")
             self._cue_action("update")
             self._cue_action("output")
-            if len(self._cast["bricks"]) == 0:
-                # Game over
-                self._keep_playing = False
-                print("You won! Thanks for playing!")
             if raylibpy.window_should_close():
                 self._keep_playing = False
 
