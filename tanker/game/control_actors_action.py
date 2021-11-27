@@ -23,4 +23,4 @@ class ControlActorsAction(Action):
             # x = position.get_x()
 
             direction = self._input_service.get_direction()
-            tank.set_velocity(direction.scale(constants.PADDLE_SPEED))        
+            tank.set_velocity(direction.scale(constants.TANK_SPEED))        

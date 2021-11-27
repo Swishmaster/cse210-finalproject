@@ -8,33 +8,32 @@ DEFAULT_SQUARE_SIZE = 20
 DEFAULT_FONT_SIZE = 20
 DEFAULT_TEXT_OFFSET = 4
 
-IMAGE_BRICK = os.path.join(os.getcwd(), "./tanker/assets/brick-3.png")
-IMAGE_PADDLE = os.path.join(os.getcwd(), "./tanker/assets/bat.png")
-IMAGE_BALL = os.path.join(os.getcwd(), "./tanker/assets/ball.png")
-IMAGE_ARTIFACT = os.path.join(os.getcwd(), "./tanker/assets/brick-4.png")
+IMAGE_WALL = os.path.join(os.getcwd(), "./tanker/assets/brick-wall.png")
+IMAGE_TANK = os.path.join(os.getcwd(), "./tanker/assets/tank.png")
+IMAGE_BULLET = os.path.join(os.getcwd(), "./tanker/assets/bullet.png")
 
 SOUND_START = os.path.join(os.getcwd(), "./tanker/assets/start.wav")
-SOUND_BOUNCE = os.path.join(os.getcwd(), "./tanker/assets/boing.wav")
+SOUND_BULLET = os.path.join(os.getcwd(), "./tanker/assets/bullet.wav")
 SOUND_OVER = os.path.join(os.getcwd(), "./tanker/assets/over.wav")
 
-BALL_X = MAX_X / 2
-BALL_Y = MAX_Y - 125
+BULLET_X = MAX_X / 2
+BULLET_Y = MAX_Y - 125
 
-BALL_DX = 8
-BALL_DY = BALL_DX * -1
+BULLET_DX = 8
+BULLET_DY = BULLET_DX * -1
 
-PADDLE_X = MAX_X / 2
-PADDLE_Y = MAX_Y - 25
+TANK_X = 25
+TANK_Y = MAX_Y/2
 
-BRICK_WIDTH = 48
-BRICK_HEIGHT = 24
+WALL_WIDTH = 48
+WALL_HEIGHT = 24
 
-BRICK_SPACE = 5
+WALL_SPACE = 5
 
-PADDLE_SPEED = 6
+TANK_SPEED = 6
 
-PADDLE_WIDTH = 96
-PADDLE_HEIGHT = 24
+TANK_WIDTH = 96
+TANK_HEIGHT = 24
 
-BALL_WIDTH = 24
-BALL_HEIGHT = 24
+BULLET_WIDTH = 5
+BULLET_HEIGHT = 2

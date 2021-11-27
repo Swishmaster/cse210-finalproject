@@ -26,37 +26,37 @@ def main():
 
     cast["walls"] = []
     walls = []
-    for y in range(50, constants.MAX_Y - 50):  
+    for y in range(50, constants.MAX_Y - 50, 20):  
         x = constants.MAX_X/2
         position = Point(x, y)
 
         wall = Wall()
         wall.set_position(position)
-        wall.set_height(constants.BRICK_HEIGHT)
-        wall.set_width(constants.BRICK_WIDTH)
-        wall.set_image(constants.IMAGE_BRICK)
+        wall.set_height(constants.WALL_HEIGHT)
+        wall.set_width(constants.WALL_WIDTH)
+        wall.set_image(constants.IMAGE_WALL)
         walls.append(wall)
 
-    for p in range(200, constants.MAX_Y-200):
+    for p in range(200, constants.MAX_Y-200, 20):
         q = 200
         position = Point(q, p)
 
         wall = Wall()
         wall.set_position(position)
-        wall.set_height(constants.BRICK_HEIGHT)
-        wall.set_width(constants.BRICK_WIDTH)
-        wall.set_image(constants.IMAGE_BRICK)
+        wall.set_height(constants.WALL_HEIGHT)
+        wall.set_width(constants.WALL_WIDTH)
+        wall.set_image(constants.IMAGE_WALL)
         walls.append(wall)
 
-    for a in range(200, constants.MAX_Y-200):
+    for a in range(200, constants.MAX_Y-200, 20):
         b = 600
         position = Point(b, a)
 
         wall = Wall()
         wall.set_position(position)
-        wall.set_height(constants.BRICK_HEIGHT)
-        wall.set_width(constants.BRICK_WIDTH)
-        wall.set_image(constants.IMAGE_BRICK)
+        wall.set_height(constants.WALL_HEIGHT)
+        wall.set_width(constants.WALL_WIDTH)
+        wall.set_image(constants.IMAGE_WALL)
         walls.append(wall)
 
     cast["walls"] = walls
@@ -64,11 +64,11 @@ def main():
     cast["tank"] = []
     tank = Tank()
     tanks = []
-    position = Point(constants.PADDLE_X, constants.PADDLE_Y)
+    position = Point(constants.TANK_X, constants.TANK_Y)
     tank.set_position(position)
-    tank.set_height(constants.PADDLE_HEIGHT)
-    tank.set_width(constants.PADDLE_WIDTH)
-    tank.set_image(constants.IMAGE_PADDLE)
+    tank.set_height(constants.TANK_HEIGHT)
+    tank.set_width(constants.TANK_WIDTH)
+    tank.set_image(constants.IMAGE_TANK)
     tanks.append(tank)
     cast["tank"] = tanks
 
