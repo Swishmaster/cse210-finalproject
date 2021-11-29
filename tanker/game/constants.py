@@ -16,14 +16,12 @@ SOUND_START = os.path.join(os.getcwd(), "./tanker/assets/start.wav")
 SOUND_BULLET = os.path.join(os.getcwd(), "./tanker/assets/bullet.wav")
 SOUND_OVER = os.path.join(os.getcwd(), "./tanker/assets/over.wav")
 
-BULLET_X = MAX_X / 2
-BULLET_Y = MAX_Y - 125
-
-BULLET_DX = 8
-BULLET_DY = BULLET_DX * -1
+BULLET_DX = 10
 
 TANK_X = 25
 TANK_Y = MAX_Y/2
+MAX_TANK_X = 745
+MAX_TANK_Y = 545
 
 WALL_WIDTH = 48
 WALL_HEIGHT = 24
@@ -35,5 +33,5 @@ TANK_SPEED = 6
 TANK_WIDTH = 96
 TANK_HEIGHT = 24
 
-BULLET_WIDTH = 5
-BULLET_HEIGHT = 2
+BULLET_WIDTH = 25
+BULLET_HEIGHT = 10
