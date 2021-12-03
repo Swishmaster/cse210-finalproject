@@ -14,6 +14,7 @@ from game.audio_service import AudioService
 from game.wall import Wall
 from game.bullet import Bullet
 from game.tank import Tank
+from game.enemies import Enemies
 from game.control_actors_action import ControlActorsAction
 from game.handle_collisions_action import HandleCollisionsAction
 from game.handle_off_screen_action import HandleOffScreenAction
@@ -27,7 +28,7 @@ def main():
 
     cast["walls"] = []
     walls = []
-    for y in range(50, constants.MAX_Y - 50, 20):  
+    for y in range(70, constants.MAX_Y - 50, 20):  
         x = constants.MAX_X/2
         position = Point(x, y)
 
@@ -74,6 +75,20 @@ def main():
     cast["tank"] = tanks
 
     cast["bullets"] = []
+
+    cast["enemies"] = []
+    enemies = []
+    for d in range(100, constants.MAX_Y - 100, 100):
+        c = 700
+        position = Point(c, d)
+        enemy = Enemies()
+        enemy.set_position(position)
+        enemy.set_height(constants.ENEMY_HEIGHT)
+        enemy.set_width(constants.ENEMY_WIDTH)
+        enemy.set_velocity(Point(0, 0))#random.randint(-3, 0), random.randint(-3, 3)))
+        enemy.set_image(constants.IMAGE_ENEMY_TANK)
+        enemies.append(enemy)
+    cast["enemies"] = enemies
 
     # Create the script {key: tag, value: list}
     script = {}

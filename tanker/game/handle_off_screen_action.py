@@ -28,8 +28,8 @@ class HandleOffScreenAction(Action):
         elif y < 0 or y > constants.MAX_Y-20:
             if y < 0:
                 y = 0
-            elif y > constants.MAX_Y-20:
-                y = constants.MAX_TANK_Y
+            elif y > constants.MAX_Y-10:
+                y = constants.MAX_TANK_Y + 10
                 for bullet in bullets:
                     bullets.remove(bullet)
             else:
