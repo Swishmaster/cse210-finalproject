@@ -85,7 +85,7 @@ def main():
         enemy.set_position(position)
         enemy.set_height(constants.ENEMY_HEIGHT)
         enemy.set_width(constants.ENEMY_WIDTH)
-        enemy.set_velocity(Point(0, 0))#random.randint(-3, 0), random.randint(-3, 3)))
+        enemy.set_velocity(Point(-1, 0))#random.randint(-3, 0), random.randint(-3, 3)))
         enemy.set_image(constants.IMAGE_ENEMY_TANK)
         enemies.append(enemy)
     cast["enemies"] = enemies
