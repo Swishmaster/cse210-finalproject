@@ -15,10 +15,13 @@ class HandleOffScreenAction(Action):
         x = position.get_x()
         y = position.get_y()
         bullets = cast["bullets"]
+        enemy_bullets = cast["enemy_bullets"]
         
         if x > constants.MAX_X-20 or x < 0:
             if x < 0:
                 x = 0
+                for bullet in enemy_bullets:
+                    enemy_bullets.remove(bullet)
             elif x > constants.MAX_X - 96:
                 x = constants.MAX_TANK_X
                 for bullet in bullets:
@@ -30,8 +33,6 @@ class HandleOffScreenAction(Action):
                 y = 0
             elif y > constants.MAX_Y-10:
                 y = constants.MAX_TANK_Y + 10
-                for bullet in bullets:
-                    bullets.remove(bullet)
             else:
                 y = y
 

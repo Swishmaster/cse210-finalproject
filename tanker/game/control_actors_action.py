@@ -17,6 +17,7 @@ class ControlActorsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        tank = cast["tank"][0]
+        tanks = cast["tank"]
         direction = self._input_service.get_direction()
-        tank.set_velocity(direction.scale(constants.TANK_SPEED))
+        for tank in tanks:
+            tank.set_velocity(direction.scale(constants.TANK_SPEED))

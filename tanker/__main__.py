@@ -1,5 +1,6 @@
 import random
 import os
+
 os.environ['RAYLIB_BIN_PATH'] = '.'
 from raylibpy import RAYLIB_BIN_PATH
 from game import constants
@@ -20,6 +21,9 @@ from game.handle_collisions_action import HandleCollisionsAction
 from game.handle_off_screen_action import HandleOffScreenAction
 from game.move_actors_action import MoveActorsAction
 from game.shoot_bullet_action import ShootBulletAction
+from game.move_enemies_action import MoveEnemiesAction
+from game.lives import Lives
+from game.loser_winner import LoserWinner
 
 def main():
 
@@ -28,7 +32,7 @@ def main():
 
     cast["walls"] = []
     walls = []
-    for y in range(70, constants.MAX_Y - 50, 20):  
+    for y in range(0, constants.MAX_Y, 20):  
         x = constants.MAX_X/2
         position = Point(x, y)
 
@@ -75,20 +79,46 @@ def main():
     cast["tank"] = tanks
 
     cast["bullets"] = []
+    cast["enemy_bullets"] = []
 
-    cast["enemies"] = []
+    cast["enemy"] = []
     enemies = []
-    for d in range(100, constants.MAX_Y - 100, 100):
-        c = 700
-        position = Point(c, d)
-        enemy = Enemies()
-        enemy.set_position(position)
-        enemy.set_height(constants.ENEMY_HEIGHT)
-        enemy.set_width(constants.ENEMY_WIDTH)
-        enemy.set_velocity(Point(-1, 0))#random.randint(-3, 0), random.randint(-3, 3)))
-        enemy.set_image(constants.IMAGE_ENEMY_TANK)
-        enemies.append(enemy)
-    cast["enemies"] = enemies
+    c = 700
+    position = Point(c, constants.TANK_Y)
+    enemy = Enemies()
+    enemy.set_position(position)
+    enemy.set_height(constants.ENEMY_HEIGHT)
+    enemy.set_width(constants.ENEMY_WIDTH) 
+    enemy.set_image(constants.IMAGE_ENEMY_TANK)
+    enemy.set_velocity(Point(0,0))
+    enemies.append(enemy)
+    cast["enemy"] = enemies
+
+    cast["tank_lives"] = []
+    x_value = 10
+    for e in range(0, constants.TANK_LIVES):
+        life = Lives()
+        position = Point(x_value, 10)
+        life.set_position(position)
+        life.set_velocity((Point(0,0)))
+        life.set_height(constants.LIVES_HEIGHT)
+        life.set_width(constants.LIVES_WIDTH)
+        life.set_image(constants.IMAGE_HEART)
+        cast["tank_lives"].append(life)
+        x_value = x_value + 25
+    
+    cast["enemy_lives"] = []
+    enemy_x_value = 750
+    for f in range(0, constants.ENEMY_LIVES):
+        life = Lives()
+        position = Point(enemy_x_value, 10)
+        life.set_position(position)
+        life.set_velocity((Point(0,0)))
+        life.set_height(constants.LIVES_HEIGHT)
+        life.set_width(constants.LIVES_WIDTH)
+        life.set_image(constants.IMAGE_HEART)
+        cast["enemy_lives"].append(life)
+        enemy_x_value = enemy_x_value - 25
 
     # Create the script {key: tag, value: list}
     script = {}
@@ -104,10 +134,10 @@ def main():
     control_actors_action = ControlActorsAction(input_service)
     handle_collisions_action = HandleCollisionsAction(physics_service)
     shoot_bullet_action = ShootBulletAction()
-
+    move_enemies_action = MoveEnemiesAction()
 
     script["input"] = [control_actors_action]
-    script["update"] = [move_actors_action, shoot_bullet_action ,handle_off_screen_action, handle_collisions_action]
+    script["update"] = [move_actors_action, shoot_bullet_action, move_enemies_action, handle_off_screen_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
 
     # Start the game
@@ -116,7 +146,7 @@ def main():
     audio_service.play_sound(constants.SOUND_START)
     
     director = Director(cast, script)
-    director.start_game()
+    director.start_game(cast)
 
     audio_service.stop_audio()
 

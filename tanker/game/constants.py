@@ -13,10 +13,16 @@ IMAGE_WALL = os.path.join(os.getcwd(), "./tanker/assets/brick-wall.png")
 IMAGE_TANK = os.path.join(os.getcwd(), "./tanker/assets/tank.png")
 IMAGE_BULLET = os.path.join(os.getcwd(), "./tanker/assets/bullet.png")
 IMAGE_ENEMY_TANK = os.path.join(os.getcwd(), "./tanker/assets/enemy_tank.png")
+IMAGE_HEART = os.path.join(os.getcwd(), "./tanker/assets/heart.png")
+IMAGE_WINNER = os.path.join(os.getcwd(), "./tanker/assets/winner.png")
+IMAGE_LOSER = os.path.join(os.getcwd(), "./tanker/assets/loser.png")
 
 SOUND_START = os.path.join(os.getcwd(), "./tanker/assets/start.wav")
 SOUND_BULLET = os.path.join(os.getcwd(), "./tanker/assets/bullet.wav")
-SOUND_OVER = os.path.join(os.getcwd(), "./tanker/assets/over.wav")
+SOUND_LOSER = os.path.join(os.getcwd(), "./tanker/assets/loser.wav") 
+SOUND_WINNER = os.path.join(os.getcwd(), "./tanker/assets/winner.wav")
+SOUND_HIT = os.path.join(os.getcwd(), "./tanker/assets/im_hit.wav")
+SOUND_YEAH = os.path.join(os.getcwd(), "./tanker/assets/yeah.wav")
 
 BULLET_DX = 10
 
@@ -31,6 +37,7 @@ WALL_HEIGHT = 24
 WALL_SPACE = 5
 
 TANK_SPEED = 6
+TANK_LIVES = 3
 
 TANK_WIDTH = 64
 TANK_HEIGHT = 64
@@ -41,3 +48,7 @@ BULLET_HEIGHT = 10
 ENEMY_SPEED = 3
 ENEMY_HEIGHT = 64
 ENEMY_WIDTH = 64
+ENEMY_LIVES = 5
+
+LIVES_WIDTH = 25
+LIVES_HEIGHT = 25
