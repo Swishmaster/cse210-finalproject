@@ -47,7 +47,7 @@ class Director:
                 loser_winner.set_width(500)
                 loser_winner.set_image(constants.IMAGE_WINNER)
                 cast["winner"].append(loser_winner)
-                self._audio_service.play_sound(constants.SOUND_WINNER)
+                # self._audio_service.play_sound(constants.SOUND_WINNER)
             elif len(cast["tank_lives"]) <= 0:
                 cast["tank"] = []
                 cast["loser"] = []
@@ -59,7 +59,7 @@ class Director:
                 loser_winner.set_width(500)
                 loser_winner.set_image(constants.IMAGE_LOSER)
                 cast["loser"].append(loser_winner)
-                self._audio_service.play_sound(constants.SOUND_LOSER)
+                # self._audio_service.play_sound(constants.SOUND_LOSER)
 
     def _cue_action(self, tag):
         """Executes the actions with the given tag.

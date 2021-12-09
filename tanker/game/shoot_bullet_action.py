@@ -29,7 +29,7 @@ class ShootBulletAction(Action):
                 bullet1.set_velocity(Point(constants.BULLET_DX, 0))
                 bullet1.set_image(constants.IMAGE_BULLET)
                 cast["bullets"].append(bullet1)
-                self._audio_service.play_sound(constants.SOUND_BULLET)
+                # self._audio_service.play_sound(constants.SOUND_BULLET)
 
         enemies = cast["enemy"]
         for enemy in enemies:
