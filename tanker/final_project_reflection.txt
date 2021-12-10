@@ -1,0 +1,26 @@
+    Abstraction is the way that a object oriented program "hides" things from 
+the user. This allows for many complex things to happen in the background
+while the user only sees a screen. In my program, the user can only see
+a tank and an enemy. They use the arrow keys to move and the space bar to shoot. 
+The user never sees all the code behind the game and gets to enjoy the game 
+without having to see all the details on how the game works.
+    Encapsulation is the ability of a class to make it's member variable only
+changeable and accesible through it. This makes the variables specific to certain
+classes and doesn't allow them to be changed unless that class makes the change. 
+This was used all throughout my program. Almost all my variables used Encapsulation
+and I had to use setters and getters to do things with member variables. This 
+created a form of security for the variables in my code.
+    Inheritance is the ability to inherit methods, and variables from a class.
+You can create a base class that has variables and methods that other classes will
+use. This allows for the ease of the programmer and makes the code more readable
+and understandable. This was used a ton in my tanker program. All of the actors in
+my program inherited from a class called actor which had different methods and 
+variables. This allowed for me to create more actors very quickly and very easily.
+It took out the use of copy and paste.
+    Polymorphism is the ability of a variable or method to take on multiple forms.
+One class can use a variable for one purpose and another class can use that same
+variable for a different purpose. It allows a method or variable to be changeable
+and dynamic. This was also all over my program. It was used with every different
+actor that I had. For example, the lives of the enemy and the tank lives used 
+Polymorphism. This allowed them to be actors, but doing something completely
+different than the other actors. 
