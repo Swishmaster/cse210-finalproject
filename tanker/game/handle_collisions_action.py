@@ -68,14 +68,14 @@ class HandleCollisionsAction(Action):
                         bullets.remove(bullet)
                         if len(enemy_lives) > 0:
                             cast["enemy_lives"].pop()
-                        # self._audio_service.play_sound(constants.SOUND_YEAH)
+                        self._audio_service.play_sound(constants.SOUND_YEAH)
         
             for enemy_bullet in enemy_bullets:
                 if self._physics_service.is_collision(enemy_bullet, tank):
                             enemy_bullets.remove(enemy_bullet)
                             if len(tank_lives) > 0:
                                 cast["tank_lives"].pop()
-                            # self._audio_service.play_sound(constants.SOUND_HIT)
+                            self._audio_service.play_sound(constants.SOUND_HIT)
                 for wall in walls:
                     if self._physics_service.is_collision(enemy_bullet, wall):
                             walls.remove(wall)

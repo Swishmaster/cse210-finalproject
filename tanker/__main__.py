@@ -24,6 +24,7 @@ from game.shoot_bullet_action import ShootBulletAction
 from game.move_enemies_action import MoveEnemiesAction
 from game.lives import Lives
 from game.loser_winner import LoserWinner
+from time import sleep
 
 def main():
 
@@ -127,7 +128,7 @@ def main():
     output_service = OutputService()
     physics_service = PhysicsService()
     audio_service = AudioService()
-
+   
     draw_actors_action = DrawActorsAction(output_service)
     move_actors_action = MoveActorsAction()
     handle_off_screen_action = HandleOffScreenAction()
@@ -147,7 +148,7 @@ def main():
     
     director = Director(cast, script)
     director.start_game(cast)
-
+    sleep(3)
     audio_service.stop_audio()
 
 if __name__ == "__main__":

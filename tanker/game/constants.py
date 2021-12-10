@@ -19,8 +19,8 @@ IMAGE_LOSER = os.path.join(os.getcwd(), "./tanker/assets/loser.png")
 
 SOUND_START = os.path.join(os.getcwd(), "./tanker/assets/start.wav")
 SOUND_BULLET = os.path.join(os.getcwd(), "./tanker/assets/bullet.wav")
-SOUND_LOSER = os.path.join(os.getcwd(), "./tanker/assets/loser.wav") 
-SOUND_WINNER = os.path.join(os.getcwd(), "./tanker/assets/winner.wav")
+SOUND_LOSER = os.path.join(os.getcwd(), "./tanker/assets/game_over.wav") 
+SOUND_WINNER = os.path.join(os.getcwd(), "./tanker/assets/cheers.wav")
 SOUND_HIT = os.path.join(os.getcwd(), "./tanker/assets/im_hit.wav")
 SOUND_YEAH = os.path.join(os.getcwd(), "./tanker/assets/yeah.wav")
 

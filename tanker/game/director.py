@@ -3,6 +3,7 @@ from game import constants
 from game.point import Point
 from game.loser_winner import LoserWinner
 from game.audio_service import AudioService
+import threading as th
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -27,9 +28,11 @@ class Director:
         self._script = script
         self._keep_playing = True
         self._audio_service = AudioService()
-        
+
     def start_game(self, cast):
         """Starts the game loop to control the sequence of play."""
+        loser = False
+        winner = False
         while self._keep_playing:
             self._cue_action("input")
             self._cue_action("update")
@@ -47,7 +50,8 @@ class Director:
                 loser_winner.set_width(500)
                 loser_winner.set_image(constants.IMAGE_WINNER)
                 cast["winner"].append(loser_winner)
-                # self._audio_service.play_sound(constants.SOUND_WINNER)
+                self._keep_playing = False
+                winner = True
             elif len(cast["tank_lives"]) <= 0:
                 cast["tank"] = []
                 cast["loser"] = []
@@ -59,8 +63,15 @@ class Director:
                 loser_winner.set_width(500)
                 loser_winner.set_image(constants.IMAGE_LOSER)
                 cast["loser"].append(loser_winner)
-                # self._audio_service.play_sound(constants.SOUND_LOSER)
-
+                self._keep_playing = False
+                loser = True
+        
+        if loser:
+            self._audio_service.play_sound(constants.SOUND_LOSER)
+        if winner:
+            self._audio_service.play_sound(constants.SOUND_WINNER)
+        self._cue_action("output")  
+                 
     def _cue_action(self, tag):
         """Executes the actions with the given tag.
         
